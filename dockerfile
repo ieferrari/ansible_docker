@@ -4,3 +4,4 @@ RUN apt update
 RUN apt install -y openssh-server
 RUN apt install -y sshpass 
 RUN pip install ansible
+RUN apt install -y curl
