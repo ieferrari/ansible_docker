@@ -1,12 +1,11 @@
 # Workflow to publish docker image on docker-hub
 name: push_docker_image
 
-
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push events but only for the "master" and "dev" branch
   push:
-    branches: [ "main", "dev" ,"devops"]
+    branches: ["main", "dev", "devops"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,5 +29,5 @@ jobs:
           CI_REGISTRY_USER: ${{ secrets.CI_REGISTRY_USER }}
         run: |
           docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
-          docker build --pull -t ieferrari/ansible:latest -f dockerfile .
-          docker push ieferrari/ansible:latest
+          docker build --pull -t ieferrari/ansible:$VERSION -f dockerfile .
+          docker push ieferrari/ansible:$VERSION
