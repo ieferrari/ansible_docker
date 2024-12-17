@@ -29,5 +29,7 @@ jobs:
           CI_REGISTRY_USER: ${{ secrets.CI_REGISTRY_USER }}
         run: |
           docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
+          source VERSION
+          echo $VERSION
           docker build --pull -t "ieferrari/ansible:$VERSION" -f dockerfile .
           docker push "ieferrari/ansible:$VERSION"
