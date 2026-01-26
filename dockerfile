@@ -1,4 +1,4 @@
-FROM python:3.11-slim-bullseye
+FROM python:3.13.4-slim-bookworm
 
 RUN apt update 
 RUN apt install -y openssh-server
